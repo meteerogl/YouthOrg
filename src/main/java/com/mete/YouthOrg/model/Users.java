@@ -38,6 +38,9 @@ public class Users {
     @ManyToOne(cascade = CascadeType.ALL)
     private Universities university;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Organizations organization;
+
 
 
 }
