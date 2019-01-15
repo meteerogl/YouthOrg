@@ -17,6 +17,14 @@ public class Universities {
     @Column(name = "uni_name")
     private String uni_name;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Countries uni_country;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Provinces uni_province;
+
+
+
     @OneToMany(mappedBy = "university")
     private Set<Users> users;
 

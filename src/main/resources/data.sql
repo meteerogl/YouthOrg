@@ -1,0 +1,1 @@
+INSERT INTO `universities` (`uni_id`, `uni_name`) VALUES ('1', 'YILDIRİM');
