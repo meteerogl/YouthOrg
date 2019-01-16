@@ -6,7 +6,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "countries")
-public class Countries {
+public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,17 +17,17 @@ public class Countries {
     private String country_name;
 
     @OneToMany(mappedBy = "uni_country")
-    private Set<Universities> universities;
+    private Set<University> universities;
 
     @OneToMany(mappedBy = "country")
-    private Set<Provinces> provinces;
+    private Set<Province> provinces;
 
 
-    public Countries(){
+    public Country(){
 
     }
 
-    public Countries(String country_name, Set<Universities> universities, Set<Provinces> provinces) {
+    public Country(String country_name, Set<University> universities, Set<Province> provinces) {
         this.country_name = country_name;
         this.universities = universities;
         this.provinces = provinces;
@@ -49,19 +49,19 @@ public class Countries {
         this.country_name = country_name;
     }
 
-    public Set<Universities> getUniversities() {
+    public Set<University> getUniversities() {
         return universities;
     }
 
-    public void setUniversities(Set<Universities> universities) {
+    public void setUniversities(Set<University> universities) {
         this.universities = universities;
     }
 
-    public Set<Provinces> getProvinces() {
+    public Set<Province> getProvinces() {
         return provinces;
     }
 
-    public void setProvinces(Set<Provinces> provinces) {
+    public void setProvinces(Set<Province> provinces) {
         this.provinces = provinces;
     }
 }

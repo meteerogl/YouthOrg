@@ -6,7 +6,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "provinces")
-public class Provinces {
+public class Province {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,16 +19,16 @@ public class Provinces {
 
 
     @OneToMany(mappedBy = "uni_province")
-    private Set<Universities> universities;
+    private Set<University> universities;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Countries country;
+    private Country country;
 
-    public Provinces(){
+    public Province(){
 
     }
 
-    public Provinces(String province_name, Set<Universities> universities, Countries country) {
+    public Province(String province_name, Set<University> universities, Country country) {
         this.province_name = province_name;
         this.universities = universities;
         this.country = country;
@@ -50,19 +50,19 @@ public class Provinces {
         this.province_name = province_name;
     }
 
-    public Set<Universities> getUniversities() {
+    public Set<University> getUniversities() {
         return universities;
     }
 
-    public void setUniversities(Set<Universities> universities) {
+    public void setUniversities(Set<University> universities) {
         this.universities = universities;
     }
 
-    public Countries getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(Countries country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 }

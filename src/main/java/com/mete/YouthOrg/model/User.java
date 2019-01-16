@@ -1,16 +1,13 @@
 package com.mete.YouthOrg.model;
 
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
 import java.util.Set;
 
 
 @Entity
 @Table(name = "user")
-public class Users {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,10 +30,10 @@ public class Users {
     private String phone_number;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Universities university;
+    private University university;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Organizations organization;
+    private Organization organization;
 
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -46,11 +43,11 @@ public class Users {
     private Set<Role> roles;
 
 
-    public Users(){
+    public User(){
 
     }
 
-    public Users(String name, String lastname, String username, String password, String phone_number, Universities university, Organizations organization, Set<Role> roles) {
+    public User(String name, String lastname, String username, String password, String phone_number, University university, Organization organization, Set<Role> roles) {
         this.name = name;
         this.lastname = lastname;
         this.username = username;
@@ -109,19 +106,19 @@ public class Users {
         this.phone_number = phone_number;
     }
 
-    public Universities getUniversity() {
+    public University getUniversity() {
         return university;
     }
 
-    public void setUniversity(Universities university) {
+    public void setUniversity(University university) {
         this.university = university;
     }
 
-    public Organizations getOrganization() {
+    public Organization getOrganization() {
         return organization;
     }
 
-    public void setOrganization(Organizations organization) {
+    public void setOrganization(Organization organization) {
         this.organization = organization;
     }
 

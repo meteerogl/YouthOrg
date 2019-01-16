@@ -6,7 +6,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "organizations")
-public class Organizations {
+public class Organization {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,14 +21,14 @@ public class Organizations {
     private String org_detail;
 
     @OneToMany(mappedBy = "organization")
-    private Set<Users> users;
+    private Set<User> users;
 
 
-    public Organizations(){
+    public Organization(){
 
     }
 
-    public Organizations(String org_name, String org_detail, Set<Users> users) {
+    public Organization(String org_name, String org_detail, Set<User> users) {
         this.org_name = org_name;
         this.org_detail = org_detail;
         this.users = users;
@@ -58,11 +58,11 @@ public class Organizations {
         this.org_detail = org_detail;
     }
 
-    public Set<Users> getUsers() {
+    public Set<User> getUsers() {
         return users;
     }
 
-    public void setUsers(Set<Users> users) {
+    public void setUsers(Set<User> users) {
         this.users = users;
     }
 }

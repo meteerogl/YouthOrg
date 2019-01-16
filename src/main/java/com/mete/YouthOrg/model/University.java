@@ -2,12 +2,11 @@ package com.mete.YouthOrg.model;
 
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "universities")
-public class Universities {
+public class University {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,22 +17,22 @@ public class Universities {
     private String uni_name;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Countries uni_country;
+    private Country uni_country;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Provinces uni_province;
+    private Province uni_province;
 
 
 
     @OneToMany(mappedBy = "university")
-    private Set<Users> users;
+    private Set<User> users;
 
 
-    public Universities(){
+    public University(){
 
     }
 
-    public Universities(String uni_name, Countries uni_country, Provinces uni_province, Set<Users> users) {
+    public University(String uni_name, Country uni_country, Province uni_province, Set<User> users) {
         this.uni_name = uni_name;
         this.uni_country = uni_country;
         this.uni_province = uni_province;
@@ -56,27 +55,27 @@ public class Universities {
         this.uni_name = uni_name;
     }
 
-    public Countries getUni_country() {
+    public Country getUni_country() {
         return uni_country;
     }
 
-    public void setUni_country(Countries uni_country) {
+    public void setUni_country(Country uni_country) {
         this.uni_country = uni_country;
     }
 
-    public Provinces getUni_province() {
+    public Province getUni_province() {
         return uni_province;
     }
 
-    public void setUni_province(Provinces uni_province) {
+    public void setUni_province(Province uni_province) {
         this.uni_province = uni_province;
     }
 
-    public Set<Users> getUsers() {
+    public Set<User> getUsers() {
         return users;
     }
 
-    public void setUsers(Set<Users> users) {
+    public void setUsers(Set<User> users) {
         this.users = users;
     }
 }
