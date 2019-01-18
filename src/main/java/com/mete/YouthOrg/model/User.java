@@ -29,6 +29,9 @@ public class User {
     @Column(name = "phone_number")
     private String phone_number;
 
+    @Column(name = "active")
+    private int active;
+
     @ManyToOne(cascade = CascadeType.ALL)
     private University university;
 
@@ -47,15 +50,24 @@ public class User {
 
     }
 
-    public User(String name, String lastname, String username, String password, String phone_number, University university, Organization organization, Set<Role> roles) {
+    public User(String name, String lastname, String username, String password, String phone_number, int active, University university, Organization organization, Set<Role> roles) {
         this.name = name;
         this.lastname = lastname;
         this.username = username;
         this.password = password;
         this.phone_number = phone_number;
+        this.active = active;
         this.university = university;
         this.organization = organization;
         this.roles = roles;
+    }
+
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
     }
 
     public int getUser_id() {
