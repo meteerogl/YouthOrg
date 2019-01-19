@@ -17,6 +17,10 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+
+    @Autowired
+    UrlAuthenticationSuccessHandler urlAuthenticationSuccessHandler;
+
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -42,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/").permitAll()
                     .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .and()
-                .formLogin()
+                .formLogin().successHandler(urlAuthenticationSuccessHandler)
                     .loginPage("/login")
                     .permitAll();
 
