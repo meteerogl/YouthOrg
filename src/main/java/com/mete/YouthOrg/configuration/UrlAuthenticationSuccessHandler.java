@@ -31,9 +31,14 @@ public class UrlAuthenticationSuccessHandler implements AuthenticationSuccessHan
             if("ADMIN".equals(auth.getAuthority())){
                 httpServletResponse.sendRedirect("admin/home");
             }
-            else
-            {
+            else if("ORGADMIN".equals(auth.getAuthority())){
                 httpServletResponse.sendRedirect("orgAdmin/home");
+            }
+            else if("UNIREP".equals(auth.getAuthority())){
+                httpServletResponse.sendRedirect("uniRep/home");
+            }
+            else if("USER".equals(auth.getAuthority())){
+                httpServletResponse.sendRedirect("user/home");
             }
 
 

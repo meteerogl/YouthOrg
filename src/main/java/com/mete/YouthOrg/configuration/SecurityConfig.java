@@ -45,14 +45,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .authorizeRequests()
                     .antMatchers("/").permitAll()
                     .antMatchers("/admin/**").hasAuthority("ADMIN")
+                    .antMatchers("/orgAdmin/**").hasAuthority("ORGADMIN")
+                    .antMatchers("/uniRep/**").hasAuthority("UNIREP")
+                    .antMatchers("/user/**").hasAuthority("USER")
                 .and()
                 .formLogin().successHandler(urlAuthenticationSuccessHandler)
                     .loginPage("/login")
                     .permitAll();
 
-
-
-
+        
         /*http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
