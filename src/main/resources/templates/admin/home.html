@@ -25,17 +25,22 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                <li><a href="#"><span th:text="${userName}"></span></a></li>
+                <li><a href="#"><span th:text="${user.username}"></span></a></li>
             </ul>
         </div>
     </nav>
     <div class="container">
         <h1>Admin Page </h1>
+
+
+
+
+
         <ul>
-            <li><span th:text="${user.getName()}"></span></li>
-            <li><span th:text="${user.getLastname()}"></span></li>
-            <li><span th:text="${user.getOrganization()}"></span></li>
-            <li><span th:text="${user.getPhone_number()}"></span></li>
+            <li><span th:text="${user.name}"></span></li>
+            <li><span th:text="${user.lastname}"></span></li>
+            <li><span th:text="${user.organization}"></span></li>
+            <li><span th:text="${user.phone_number}"></span></li>
             <li>
                <tr th:each="roles: ${user.getRoles()}">
                    Roles:<td th:text="${roles.getRole()}"></td>
