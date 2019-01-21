@@ -1,0 +1,20 @@
+version: '2.0'
+
+services:
+
+  db:
+    image: mysql:5.7 
+    environment:
+      - MYSQL_ROOT_PASSWORD=Muco0505.
+      - MYSQL_DATABASE=login
+      
+
+    ports:
+      
+      - "127.0.0.1:3306:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    ports:
+      - "127.0.0.1:8081:80"
