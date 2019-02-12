@@ -16,10 +16,10 @@
                 <a class="navbar-brand" href="#">YouthOrganization</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">              </a></li>
-                <li><a href="#">Page 1</a></li>
-                <li><a href="#">Page 2</a></li>
+                <li class="active"><a th:href="@{home}">Home</a></li>
+                <li><a href="#">       </a></li>
+                <li><a th:href="@{organizations}">Organizations</a></li>
+                <li><a th:href="@{addOrganization}">Add Organization</a></li>
                 <li><a href="#">Page 3</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -31,11 +31,6 @@
     </nav>
     <div class="container">
         <h1>Admin Page </h1>
-
-
-
-
-
         <ul>
             <li><span th:text="${user.name}"></span></li>
             <li><span th:text="${user.lastname}"></span></li>

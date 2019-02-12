@@ -20,7 +20,7 @@ public class Organization {
     @Column(name = "org_detail")
     private String org_detail;
 
-    @OneToMany(mappedBy = "organization")
+    @OneToMany(mappedBy = "organization",fetch = FetchType.LAZY)
     private Set<User> users;
 
 

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+    <script th:src="@{/js/bootstrap.min.css}" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <title>Admin Organizations Page</title>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">YouthOrganization</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a th:href="@{home}">Home</a></li>
+            <li><a href="#">       </a></li>
+            <li class="active"><a th:href="@{organizations}">Organizations</a></li>
+            <li><a th:href="@{addOrganization}">Add Organization</a></li>
+            <li><a href="#">Page 3</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h1>Admin Organizations Page </h1>
+    <table>
+        <tr>
+            <td>Organization Name</td>
+            <td>Organization Detail</td>
+        </tr>
+        <tr th:each="org : ${organizations}">
+            <td><span th:text="${org.org_name}"></span></td>
+            <td><span th:text="${org.org_detail}"></span></td>
+        </tr>
+    </table>
+
+
+
+
+
+</div>
+</body>
+</html>

@@ -4,9 +4,8 @@
 <head>
     <title>Registration Form</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <form th:action="@{/}" method="get">
@@ -57,10 +56,10 @@
                     <div class="col-sm-9">
                         <h2>deneme</h2>
                         <select th:field="*{organization}">
-                            <option value="">--</option>
+                            <option class="form-control" value="">--</option>
                             <option th:each="entry :${organizations}"
                                     th:value="${entry.getId()}"
-                                    th:utext="${entry.getOrg_name()}">
+                                    th:utext="${entry.getId()}">
                             </option>
                         </select>
 

@@ -35,7 +35,8 @@ public class User {
     @ManyToOne(cascade = CascadeType.ALL)
     private University university;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "org_id",insertable = false,updatable = false)
     private Organization organization;
 
 

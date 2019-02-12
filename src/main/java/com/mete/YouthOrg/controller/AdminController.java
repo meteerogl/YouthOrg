@@ -1,7 +1,9 @@
 package com.mete.YouthOrg.controller;
 
 
+import com.mete.YouthOrg.model.Organization;
 import com.mete.YouthOrg.model.User;
+import com.mete.YouthOrg.service.OrganizationService;
 import com.mete.YouthOrg.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -17,6 +19,9 @@ public class AdminController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private OrganizationService organizationService;
+
     @RequestMapping(value="/admin/home", method = RequestMethod.GET)
     public ModelAndView home(){
         ModelAndView modelAndView = new ModelAndView();
@@ -26,5 +31,23 @@ public class AdminController {
         modelAndView.setViewName("admin/home");
         return modelAndView;
     }
+
+    @RequestMapping(value = "/admin/organizations",method = RequestMethod.GET)
+    public ModelAndView organizations(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("organizations",organizationService.findAll());
+        modelAndView.setViewName("/admin/organizations");
+        return modelAndView;
+
+    }
+
+    @RequestMapping(value = "/admin/addOrganization",method = RequestMethod.GET)
+    public ModelAndView addOrganization(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/admin/addOrganization");
+        return modelAndView;
+    }
+
+
 
 }
